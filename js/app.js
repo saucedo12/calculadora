@@ -11,6 +11,7 @@ var calculadora={
 	var multiplicacion=document.getElementById('por');
 	var division=document.getElementById('dividido');
 	var igual=document.getElementById('igual');
+	var signo=document.getElementById('sign');
 	var uno=document.getElementById('1');
 	var dos=document.getElementById('2');
 	var tres=document.getElementById('3');
@@ -21,8 +22,70 @@ var calculadora={
 	var ocho=document.getElementById('8');
 	var nueve=document.getElementById('9');
 	var cero=document.getElementById('0');
-
 	var punto=document.getElementById('punto');
+
+
+	// cambiar tamaño
+	reset.onmousedown=function(e){
+		reducirTamaño();
+	}
+	reset.onmouseup=function(e){
+		originalTamaño();
+	}
+	suma.onmousedown=function(e){
+		reducirTamaño();
+	}
+	suma.onmouseup=function(e){
+		originalTamaño();
+	}
+	resta.onmousedown=function(e){
+		reducirTamaño();
+	}
+	resta.onmouseup=function(e){
+		originalTamaño();
+	}
+	multiplicacion.onmousedown=function(e){
+		reducirTamaño();
+	}
+	multiplicacion.onmouseup=function(e){
+		originalTamaño();
+	}
+	division.onmousedown=function(e){
+		reducirTamaño();
+	}
+	division.onmouseup=function(e){
+		originalTamaño();
+	}
+	igual.onmousedown=function(e){
+		reducirTamaño();
+	}
+	igual.onmouseup=function(e){
+		originalTamaño();
+	}
+	signo.onmousedown=function(e){
+		reducirTamaño();
+	}
+	signo.onmouseup=function(e){
+		originalTamaño();
+	}
+	uno.onmousedown=function(e){
+		reducirTamaño();
+	}
+	uno.onmouseup=function(e){
+		originalTamaño();
+	}
+	dos.onmousedown=function(e){
+		reducirTamaño();
+	}
+	dos.onmouseup=function(e){
+		originalTamaño();
+	}
+	tres.onmousedown=function(e){
+		reducirTamaño();
+	}
+	tres.onmouseup=function(e){
+		originalTamaño();
+	}
 
 	//eventos
 	uno.onclick=function(e){
@@ -59,6 +122,27 @@ var calculadora={
 		
 		resultado.textContent=resultado.textContent+".";
 	}
+	signo.onclick=function(e){
+		if (resultado!="") {
+			valor=resultado.textContent;
+			resultado.textContent=valor*-1;
+		}
+		
+	}
+	punto.onclick=function(e){
+
+
+		if (resultado.textContent.length=="") {
+			resultado.textContent="0.";
+		} else {
+			if (!hayPunto(resultado.textContent)) {
+				resultado.textContent=resultado.textContent+".";
+			}
+		}
+		
+	}
+
+
 	reset.onclick=function(e){
 		resetear();
 	}
@@ -90,6 +174,16 @@ var calculadora={
 	}
 
 	// metodos
+
+	function hayPunto(resultado){
+		punto=false;
+		for (i =0; i < resultado.length; i++) {
+			if (resultado.substring(i,i+1)==".") {
+				punto=true;
+			}
+		}
+		return punto;
+	}
 	function limpiar(){
 		resultado.textContent="";
 	}
@@ -119,6 +213,15 @@ var calculadora={
 		resetear();
 		resultado.textContent=res;
 	}
+function reducirTamaño(){
+	document.getElementById("3").style="height:60px;";
+}
+function originalTamaño(){
+	document.getElementById("3").style="height:62.91px";
+}
+
+
+
 
 }	
 
