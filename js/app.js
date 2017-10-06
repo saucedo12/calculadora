@@ -259,7 +259,7 @@ var calculadora={
 	}
 	igual.onclick=function(e){
 		
-		opB=resultado.textContent;
+		// opB=resultado.textContent;
 		resolver();
 		
 	}
@@ -298,9 +298,9 @@ var calculadora={
 			break;
 			case "-":
 			if (opA>opB) {
-				res=parseFloat(opB)-parseFloat(opA);
-			} else {
 				res=parseFloat(opA)-parseFloat(opB);
+			} else {
+				res=parseFloat(opB)-parseFloat(opA);
 			}
 			break;
 			case "*":
